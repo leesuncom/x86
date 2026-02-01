@@ -69,11 +69,12 @@ git clone --depth=1 https://github.com/vernesong/OpenClash package/luci-app-open
 # 清理 PassWall 的 chnlist 规则文件
 echo "baidu.com"  > package/luci-app-passwall/luci-app-passwall/root/usr/share/passwall/rules/chnlist
 
-./scripts/feeds update -a
-./scripts/feeds install -a
-
 cp -rf ../pacth/files ./files
 chmod 755 ./files/etc/updatew.sh
 chmod 755 ./files/etc/hosts.sh
 chmod 755 ./files/etc/mosdns/script/flush_cache.sh
 chmod 755 ./files/etc/init.d/cert_bootstrap
+
+./scripts/feeds update -a
+./scripts/feeds install -a
+
