@@ -45,7 +45,15 @@ git_sparse_clone main https://github.com/VIKINGYFY/packages luci-app-wolplus
 git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon feeds/luci/themes/luci-theme-argon
 git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config feeds/luci/applications/luci-app-argon-config
 git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
-# chmod +x package/luci-app-athena-led/root/etc/init.d/athena_led package/luci-app-athena-led/root/usr/sbin/athena-led
+
+# replace MOSdns to lastest update
+rm -rf feeds/smpackage/luci-app-mosdns
+rm -rf feeds/smpackage/mosdns
+rm -rf feeds/luci/applications/luci-app-mosdns
+rm -rf feeds/packages/utils/v2dat
+rm -rf feeds/packages/net/v2ray-geodata
+git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
 ### PassWall & OpenClash ###
 
@@ -62,7 +70,7 @@ git clone --depth=1 https://github.com/vernesong/OpenClash package/luci-app-open
 # 清理 PassWall 的 chnlist 规则文件
 echo "baidu.com"  > package/luci-app-passwall/luci-app-passwall/root/usr/share/passwall/rules/chnlist
 
-cp -rf ../pacth/files ./files
+cp -rf ../patch/files ./files
 chmod 755 ./files/etc/updatew.sh
 chmod 755 ./files/etc/hosts.sh
 chmod 755 ./files/etc/mosdns/script/flush_cache.sh
