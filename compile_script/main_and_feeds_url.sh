@@ -11,27 +11,13 @@ declare -a feeds_REPO_URLS=(
     "https://github.com/fw876/helloworld"
     "https://github.com/Openwrt-Passwall/openwrt-passwall-packages"
     "https://github.com/Openwrt-Passwall/openwrt-passwall"
-    "https://github.com/Openwrt-Passwall/openwrt-passwall2"
     "https://github.com/vernesong/OpenClash"
-    "https://github.com/nikkinikki-org/OpenWrt-nikki"
 )
 
 declare -a custompackages_REPO_URLS=(
     https://github.com/jerrykuku/luci-theme-argon
     https://github.com/jerrykuku/luci-app-argon-config
-    https://github.com/sirpdboy/luci-theme-kucat
-    https://github.com/sirpdboy/luci-app-kucat-config
-    https://github.com/eamonxg/luci-theme-aurora
-    https://github.com/derisamedia/luci-theme-alpha-reborn.git
-    https://github.com/derisamedia/luci-theme-alpha.git
-    https://github.com/animegasan/luci-app-alpha-config.git
-    https://github.com/AngelaCooljx/luci-theme-material3.git
-    https://github.com/rufengsuixing/luci-app-adguardhome
     https://github.com/sbwml/luci-app-mosdns
-    https://github.com/sirpdboy/luci-app-netspeedtest
-    https://github.com/timsaya/openwrt-bandix
-    https://github.com/timsaya/luci-app-bandix
-    https://github.com/destan19/OpenAppFilter
 )
 
 # 处理仓库函数
