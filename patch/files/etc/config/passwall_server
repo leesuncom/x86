@@ -1,0 +1,10 @@
+
+config global 'global'
+	option enable '1'
+
+config user '3eebf9dffe554ce1b84e5fd1fa7fd367'
+	option enable '1'
+	option remarks '备注'
+	option type 'Socks'
+	option port '7898'
+

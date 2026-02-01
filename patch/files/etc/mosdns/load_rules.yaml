@@ -1,0 +1,230 @@
+plugins:
+  # 域名重定向插件：将特定域名重定向到目标域名（如CDN优化）
+  - tag: redirect
+    type: redirect
+    args:
+      # 可直接在配置中定义规则（注释示例）
+      # rules:
+      #   - cdn.jsdelivr.net cdn.jsdelivr.net.cdn.cloudflare.net
+      files:  # 从外部文件加载重定向规则
+        - "/etc/mosdns/rule/redirect.txt"
+
+  # Hosts文件解析插件（基础Hosts规则）
+  - tag: "hosts"
+    type: "hosts"
+    args:
+      # 可直接在配置中定义解析条目（注释示例）
+      # entries:
+      #   - "google.com 108.177.122.113"
+      files:  # 从外部文件加载Hosts规则
+        - "/etc/mosdns/rule/hosts.txt"
+
+  # Fastly CDN专用Hosts规则（优化Fastly节点解析）
+  - tag: "hosts_fastly"
+    type: "hosts"
+    args:
+      files:
+        - "/etc/mosdns/rule/hosts_fastly.txt"
+
+  # Akamai CDN专用Hosts规则（优化Akamai节点解析）
+  - tag: "hosts_akamai"
+    type: "hosts"
+    args:
+      files:
+        - "/etc/mosdns/rule/hosts_akamai.txt"
+
+
+  # ------------------------------
+  # 域名集合（domain_set）：按类别分组域名
+  # ------------------------------
+
+  # 国内域名集合（用于匹配需走国内DNS的域名）
+  - tag: geosite_cn
+    type: domain_set
+    args:
+      files:
+        - "/etc/mosdns/rule/china_domain_list.txt"  # 规则源：pmkol/easymosdns
+
+  # 内网域名集合（如局域网、本地服务域名）
+  - tag: privatelist
+    type: domain_set
+    args:
+      files:
+        - "/etc/mosdns/rule/private.txt"  # 规则源：Loyalsoldier/domain-list-custom
+
+  # 白名单域名（如DDNS、信任域名，不拦截且优先解析）
+  - tag: whitelist
+    type: domain_set
+    args:
+      files:
+        - "/etc/mosdns/rule/whitelist.txt"  # 规则源：Journalist-HK/Rules
+
+  # 黑名单域名（如广告、恶意域名，直接拦截）
+  - tag: blocklist
+    type: domain_set
+    args:
+      files:
+        - "/etc/mosdns/rule/blocklist.txt"  # 规则源：Journalist-HK/Rules
+
+  # 污染域名集合（需通过特殊DNS解析的被污染域名）
+  - tag: greylist
+    type: domain_set
+    args:
+      files:
+        - "/etc/mosdns/rule/greylist.txt"  # 规则源：Journalist-HK/Rules
+
+  # IPv6优先域名（优先返回IPv6解析结果的域名）
+  - tag: ipv6list
+    type: domain_set
+    args:
+      files:
+        - "/etc/mosdns/rule/ipv6_domain_list.txt"  # 规则源：Journalist-HK/Rules
+
+  # 原始解析域名（不进行IP优选，保持原始解析结果）
+  - tag: originallist
+    type: domain_set
+    args:
+      files:
+        - "/etc/mosdns/rule/original_domain_list.txt"  # 规则源：Journalist-HK/Rules
+
+  # Akamai CDN相关域名（需匹配Akamai节点的域名）
+  - tag: akamailist
+    type: domain_set
+    args:
+      files:
+        - "/etc/mosdns/rule/akamai_domain_list.txt"  # 规则源：Journalist-HK/Rules
+
+  # CDN服务相关域名（常见CDN厂商域名，如Cloudflare、Cloudfront等）
+  - tag: cdnlist
+    type: domain_set
+    args:
+      exps:  # 直接定义的CDN域名表达式
+        - "cloudflare.com"
+        - "cloudfront.net"
+        - "microsoft.com"
+        - "playstation.com"
+        - "playstation.net"
+        - "redhat.com"
+        - "samsung.com"
+        - "ubi.com"
+        - "ubisoft.com"
+        - "xboxlive.com"
+      files:  # 外部CDN规则文件
+        - "/etc/mosdns/rule/cdn_domain_list.txt"  # 规则源：pmkol/easymosdns
+
+  # 日本地区优先解析域名（需走日本节点的域名）
+  - tag: jp_dns_list
+    type: domain_set
+    args:
+      files:
+        - "/etc/mosdns/rule/jp_dns_list.txt"  # 规则源：Journalist-HK/Rules
+
+  # 美国地区优先解析域名（需走美国节点的域名）
+  - tag: us_dns_list
+    type: domain_set
+    args:
+      files:
+        - "/etc/mosdns/rule/us_dns_list.txt"  # 规则源：Journalist-HK/Rules
+
+  # GFW拦截域名（需通过特殊通道解析的境外域名）
+  - tag: gfwlist
+    type: domain_set
+    args:
+      files:
+        - "/etc/mosdns/rule/gfw.txt"  # 规则源：Loyalsoldier/v2ray-rules-dat
+        - "/etc/mosdns/rule/greatfire.txt"  # 规则源：Loyalsoldier/v2ray-rules-dat
+        - "/etc/mosdns/rule/custom_list.txt"  # 自定义规则：Journalist-HK/Rules
+
+
+  # ------------------------------
+  # IP集合（ip_set）：按类别分组IP地址
+  # ------------------------------
+
+  # 国内IP集合（用于匹配国内IP段）
+  - tag: geoip_cn
+    type: ip_set
+    args:
+      files:
+        - "/etc/mosdns/rule/china_ip_list.txt"  # 规则源：pmkol/easymosdns
+
+  # 禁止访问的IP（如恶意IP、被封锁IP）
+  - tag: banned_ip
+    type: ip_set
+    args:
+      ips:  # 直接定义的禁止IP
+        - "0.0.0.0/32"
+        - "2001::/32"
+      files:  # 外部禁止IP规则文件
+        - "/etc/mosdns/rule/gfw_ip_list.txt"  # 规则源：pmkol/easymosdns
+        - "/etc/mosdns/rule/facebook.txt"  # 规则源：Loyalsoldier/geoip
+        # - "/etc/mosdns/rule/telegram.txt"  # 可选：Telegram IP（按需启用）
+        - "/etc/mosdns/rule/twitter.txt"  # 规则源：Loyalsoldier/geoip
+
+  # CacheFly CDN的IPv4地址集合
+  - tag: cachefly_ipv4
+    type: ip_set
+    args:
+      files:
+        - "/etc/mosdns/rule/cachefly_ipv4.txt"  # 规则源：Journalist-HK/Rules
+
+  # Cloudflare CDN的IPv4地址集合
+  - tag: cloudflare_ipv4
+    type: ip_set
+    args:
+      files:
+        - "/etc/mosdns/rule/ip.txt"  # 规则源：XIU2/CloudflareSpeedTest
+
+  # Cloudflare CDN的IPv6地址集合
+  - tag: cloudflare_ipv6
+    type: ip_set
+    args:
+      files:
+        - "/etc/mosdns/rule/ipv6.txt"  # 规则源：XIU2/CloudflareSpeedTest
+
+  # CloudFront CDN的IPv4地址集合
+  - tag: cloudfront_ipv4
+    type: ip_set
+    args:
+      files:
+        - "/etc/mosdns/rule/cloudfront.txt"  # 规则源：Journalist-HK/Rules
+
+  # CloudFront CDN的IPv6地址集合
+  - tag: cloudfront_ipv6
+    type: ip_set
+    args:
+      files:
+        - "/etc/mosdns/rule/cloudfront_ipv6.txt"  # 规则源：Journalist-HK/Rules
+
+  # Fastly CDN的IP地址集合
+  - tag: fastly_ip
+    type: ip_set
+    args:
+      files:
+        - "/etc/mosdns/rule/fastly.txt"  # 规则源：Loyalsoldier/geoip
+
+  # CDN77的IPv4地址集合
+  - tag: cdn77_ipv4
+    type: ip_set
+    args:
+      files:
+        - "/etc/mosdns/rule/cdn77_ipv4.txt"  # 规则源：Journalist-HK/Rules
+
+  # Sucuri CDN的IPv4地址集合
+  - tag: sucuri_ipv4
+    type: ip_set
+    args:
+      files:
+        - "/etc/mosdns/rule/sucuri_ipv4.txt"  # 规则源：Journalist-HK/Rules
+
+
+  # ------------------------------
+  # 缓存插件：优化解析性能，减少重复查询
+  # ------------------------------
+  - tag: "cache_0"
+    type: "cache"
+    args:
+      size: 8192  # 缓存容量（默认1024，建议根据内存调整）
+      # 启用懒加载缓存：应答过期后仍保留lazy_cache_ttl时间，命中时返回TTL=5的旧数据并后台更新
+      lazy_cache_ttl: 86400  # 懒缓存保留时间（秒），建议1-3天（86400-259200）
+      dump_file: /usr/share/mosdns/cache.dump  # 缓存持久化文件路径
+      dump_interval: 7200  # 缓存自动保存间隔（秒），默认600秒

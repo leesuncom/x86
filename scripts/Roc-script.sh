@@ -71,3 +71,9 @@ echo "baidu.com"  > package/luci-app-passwall/luci-app-passwall/root/usr/share/p
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
+
+cp -rf ../PATCH/files ./files
+chmod 755 ./files/etc/updatew.sh
+chmod 755 ./files/etc/hosts.sh
+chmod 755 ./files/etc/mosdns/script/flush_cache.sh
+chmod 755 ./files/etc/init.d/cert_bootstrap

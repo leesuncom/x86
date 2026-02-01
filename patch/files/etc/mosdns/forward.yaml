@@ -1,0 +1,168 @@
+plugins:
+  # ECS（EDNS Client Subnet）处理器配置，用于模拟不同地区的DNS查询源
+  # 上海电信ECS（注释禁用）
+  # - tag: ecs_shanghai
+  #   type: ecs_handler
+  #   args:
+  #     forward: false          # 不转发客户端原始ECS
+  #     preset: 61.170.0.0      # 预设上海电信IP段（需自行确认有效性）
+  #     send: false             # 不向客户端返回ECS信息
+  #     mask4: 18               # IPv4子网掩码长度
+
+  # 中国台湾ECS（注释禁用）
+  # - tag: ecs_tw
+  #   type: ecs_handler
+  #   args:
+  #     forward: false
+  #     preset: 168.95.0.0      # 预设中国台湾IP段
+  #     send: false
+  #     mask4: 16
+
+  # 日本ECS（启用）
+  - tag: ecs_jp
+    type: ecs_handler
+    args:
+      forward: false
+      preset: 13.78.0.0       # 预设日本IP段
+      send: false
+      mask4: 17
+
+  # 美国圣何塞ECS（启用）
+  - tag: ecs_sjc
+    type: ecs_handler
+    args:
+      forward: false
+      preset: 151.101.48.0    # 预设美国圣何塞IP段
+      send: false
+      mask4: 22
+
+  # 美国洛杉矶ECS（启用）
+  - tag: ecs_lax
+    type: ecs_handler
+    args:
+      forward: false
+      preset: 151.101.196.0   # 预设美国洛杉矶IP段
+      send: false
+      mask4: 22
+
+  # 本地局域网DNS转发（注释禁用）
+  # 注意：为防止DNS请求死循环，建议请求流向为 dnsmasq --> OpenClash（可选）--> mosdns
+  # - tag: "forward_lan"
+  #   type: forward
+  #   args:
+  #     concurrent: 1           # 并发查询数（1-3）
+  #     upstream:
+  #       - addr: "192.168.1.1" # 局域网网关DNS
+
+
+  # 本地运营商DNS转发配置
+  - tag: "forward_local"
+    type: forward
+    args:
+      concurrent: 1
+      upstreams:
+        - addr: "https://127.0.0.1:6057/dns-query"  # 运营商DNS（需根据实际环境修改）
+          insecure_skip_verify: true
+
+  # DNSPod（腾讯云DNS）转发配置
+  - tag: "forward_dnspod"
+    type: forward
+    args:
+      concurrent: 1
+      upstreams:
+        - addr: "https://doh.pub/dns-query"  # DNSPod的DoH地址
+          dial_addr: "120.53.53.53"          # 强制拨号IP（DNSPod服务器）
+          enable_http3: false                # 禁用HTTP/3
+
+  # 阿里云DNS转发配置
+  - tag: "forward_alidns"
+    type: forward
+    args:
+      concurrent: 1
+      upstreams:
+        - addr: "223.5.5.5"                 # 阿里云IPv4 DNS
+        - addr: "quic://223.6.6.6:853"      # 阿里云QUIC协议DNS
+        - addr: "https://dns.alidns.com/dns-query"  # 阿里云DoH地址
+          dial_addr: "223.5.5.5"                # 强制拨号IP（阿里云服务器）
+          enable_http3: false
+
+  # 简易DNS转发（注释禁用）
+  # - tag: "forward_easy"
+  #   type: "forward"
+  #   args:
+  #     concurrent: 1
+  #     upstreams:
+  #       - addr: "https://doh.apad.pro/dns-query"  # 第三方DoH服务
+  #         bootstrap: "223.5.5.5"                 # 引导DNS（用于解析DoH地址）
+  #         enable_http3: false
+
+  # 远程DNS转发配置（通常用于访问境外资源）
+  - tag: "forward_remote"
+    type: "forward"
+    args:
+      concurrent: 1  # 并发数：每次随机选择N个上游，取最快响应（最大3）
+      upstreams:
+        - addr: "https://127.0.0.1:7058/dns-query"  # 本地代理后的DoH服务
+          enable_http3: false
+        #  insecure_skip_verify: true  # 跳过证书验证（本地代理场景常用）
+        #  socks5: "127.0.0.1:7898"  # SOCKS5代理（暂不支持用户名密码）
+        
+        # 备选远程DNS（注释禁用，按需启用）
+        # - addr: "https://doh.opendns.com/dns-query"  # OpenDNS DoH
+        #   dial_addr: "146.112.41.2"
+        #   enable_http3: false
+        # - addr: "https://public.dns.iij.jp/dns-query"  # IIJ日本DNS
+        #   dial_addr: 103.2.57.5
+        #   enable_http3: false
+        # - addr: "tcp://208.67.220.220:5353"  # CISCO OpenDNS（TCP协议）
+        #   enable_pipeline: true  # 启用TCP管道复用
+
+  # 远程查询序列（IPv4优先）
+  - tag: remote_sequence
+    type: sequence
+    args:
+      - exec: prefer_ipv4        # 优先返回IPv4结果
+      - exec: $ecs_sjc           # 应用美国圣何塞ECS
+      - exec: $forward_remote    # 使用远程DNS转发
+      - exec: return             # 终止流程
+
+  # 远程查询序列（IPv6优先）
+  - tag: remote_sequence_ipv6
+    type: sequence
+    args:
+      - exec: prefer_ipv6        # 优先返回IPv6结果
+      - exec: $forward_remote    # 使用远程DNS转发
+      - exec: return
+
+  # 故障转移配置（注释禁用）
+  # - tag: "fallback"
+  #   type: "fallback"
+  #   args:
+  #     primary: forward_easy     # 主用DNS
+  #     secondary: forward_remote # 备用DNS（主用超时/失败时启用）
+  #     threshold: 360            # 超时阈值（毫秒），超过则切换备用
+  #     always_standby: true      # 备用DNS始终待命（加速切换）
+
+  # 故障转移查询序列（注释禁用）
+  # - tag: fallback_sequence
+  #   type: sequence
+  #   args:
+  #     - exec: prefer_ipv4
+  #     - exec: $ecs_sjc          # 默认使用美国圣何塞ECS
+  #     - exec: $fallback
+  #     - exec: return
+
+  # - tag: fallback_sequence_ipv6
+  #   type: sequence
+  #   args:
+  #     - exec: prefer_ipv6
+  #     - exec: $fallback
+  #     - exec: accept
+
+  # 响应检查序列：若已有有效响应则直接返回
+  - tag: has_resp_sequence
+    type: sequence
+    args:
+      - matches:
+          - has_resp  # 检查是否已有响应结果
+        exec: accept   # 有响应则接受并终止流程

@@ -1,0 +1,13 @@
+
+config smartdns
+	option enabled '0'
+	option old_port '53'
+	option old_enabled '0'
+	option old_auto_set_dnsmasq '1'
+
+config domain-rule
+
+config client-rule
+
+config ip-rule
+

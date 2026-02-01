@@ -1,0 +1,37 @@
+#!/bin/sh /etc/rc.common
+
+NAME="cert_bootstrap"
+# 关键：START=15（小于18），确保在dnscrypt-proxy（START=18）之前启动
+# 同时晚于网络服务（通常START=10），避免网络未就绪
+START=15
+STOP=10  # 停止顺序保持不变
+
+# 判断证书文件中是否包含"mosdns"关键字
+has_mosdns_in_cert() {
+    local cert_file="/etc/ssl/certs/ca-certificates.crt"
+    # 检查文件是否存在，不存在则视为"不含关键字"
+    if [ ! -f "$cert_file" ]; then
+        return 1
+    fi
+    # 使用grep静默检查关键字，存在返回0，不存在返回1
+    grep -q "mosdns" "$cert_file"
+}
+
+start() {
+    # 如果证书文件中不含"mosdns"关键字，则执行操作
+    if ! has_mosdns_in_cert; then
+        echo "mosdns keyword not found in cert file, executing setup..."
+        # 追加证书到系统信任列表
+        cat /etc/dnscrypt-proxy2/mosdns-cert.pem >> /etc/ssl/certs/ca-certificates.crt
+        # 创建符号链接（覆盖现有）
+        ln -sf /etc/ssl/certs/ca-certificates.crt /etc/ssl/cert.pem
+        # 重启dnscrypt-proxy服务（此时dnscrypt-proxy尚未启动，实际会触发启动）
+#        /etc/init.d/dnscrypt-proxy restart
+    else
+        echo "mosdns keyword found in cert file, skipping setup."
+    fi
+}
+
+stop() {
+    return 0
+}

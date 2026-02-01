@@ -1,0 +1,731 @@
+
+config global
+	option enabled '0'
+	option socks_enabled '0'
+	option filter_proxy_ipv6 '1'
+	option dns_shunt 'chinadns-ng'
+	option dns_mode 'udp'
+	option remote_dns '127.0.0.1:7755'
+	option dns_redirect '1'
+	option chn_list 'direct'
+	option tcp_proxy_mode 'proxy'
+	option udp_proxy_mode 'proxy'
+	option localhost_proxy '1'
+	option client_proxy '1'
+	option acl_enable '0'
+	option log_tcp '0'
+	option log_udp '0'
+	option loglevel 'error'
+	option trojan_loglevel '4'
+	option log_chinadns_ng '0'
+	option direct_dns_mode 'udp'
+	option direct_dns '127.0.0.1:7755'
+	option force_https_soa '1'
+	option udp_node 'tcp'
+	option tcp_node 'C0zWEn2a'
+	option tcp_node_socks_port '1070'
+	option chinadns_ng_default_tag 'none'
+
+config global_haproxy
+	option balancing_enable '0'
+
+config global_delay
+	option start_daemon '1'
+	option start_delay '5'
+
+config global_forwarding
+	option tcp_no_redir_ports 'disable'
+	option udp_no_redir_ports 'disable'
+	option tcp_proxy_drop_ports 'disable'
+	option udp_proxy_drop_ports '443'
+	option tcp_redir_ports '1:65535'
+	option udp_redir_ports '1:65535'
+	option accept_icmp '0'
+	option use_nft '0'
+	option tcp_proxy_way 'redirect'
+	option ipv6_tproxy '0'
+
+config global_xray
+	option sniffing_override_dest '0'
+
+config global_singbox
+	option sniff_override_destination '0'
+
+config global_other
+	option auto_detection_time 'tcping'
+	option show_node_info '0'
+
+config global_rules
+	option auto_update '0'
+	option chnlist_update '1'
+	option chnroute_update '1'
+	option chnroute6_update '1'
+	option gfwlist_update '1'
+	option geosite_update '0'
+	option geoip_update '0'
+	list gfwlist_url 'https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/gfw.txt'
+	list chnroute_url 'https://ispip.clang.cn/all_cn.txt'
+	list chnroute_url 'https://cdn.jsdelivr.net/gh/gaoyifan/china-operator-ip@ip-lists/china.txt'
+	list chnroute6_url 'https://ispip.clang.cn/all_cn_ipv6.txt'
+	list chnroute6_url 'https://cdn.jsdelivr.net/gh/gaoyifan/china-operator-ip@ip-lists/china6.txt'
+	list chnlist_url 'https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list/accelerated-domains.china.conf'
+	list chnlist_url 'https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list/apple.china.conf'
+	option v2ray_location_asset '/usr/share/v2ray/'
+	option geoip_url 'https://github.com/Loyalsoldier/geoip/releases/latest/download/geoip.dat'
+	option geosite_url 'https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat'
+
+config global_app
+	option sing_box_file '/usr/bin/sing-box'
+	option xray_file '/usr/bin/xray'
+	option hysteria_file '/usr/bin/hysteria'
+
+config global_subscribe
+	option filter_keyword_mode '1'
+	list filter_discard_list '距离下次重置剩余'
+	list filter_discard_list '套餐到期'
+	list filter_discard_list '过期时间'
+	list filter_discard_list '剩余流量'
+	list filter_discard_list 'QQ群'
+	list filter_discard_list '官网'
+	option ss_aead_type 'shadowsocks-rust'
+	option ss_type 'shadowsocks-libev'
+	option trojan_type 'sing-box'
+	option vmess_type 'xray'
+	option vless_type 'xray'
+	option hysteria2_type 'sing-box'
+
+config shunt_rules 'DirectGame'
+	option remarks 'DirectGame'
+	option domain_list '# steam直连域名获取国内CDN走国内线路下载
+cm.steampowered.com
+steamserver.net
+
+# steam国内CDN华为云
+steampipe.steamcontent.tnkjmec.com
+# steam国内CDN白山云
+st.dl.eccdnx.com
+st.dl.bscstorage.net
+st.dl.pinyuncloud.com
+# steam国内CDN新流云(原金山云)(支持ipv6)
+dl.steam.clngaa.com
+# steam国内CDN网宿
+cdn.mileweb.cs.steampowered.com.8686c.com
+cdn-ws.content.steamchina.com
+# steam国内CDN腾讯云 (蒸汽中国独占)
+cdn-qc.content.steamchina.com
+# steam国内CDN阿里云(支持ipv6)
+cdn-ali.content.steamchina.com
+xz.pphimalayanrt.com
+lv.queniujq.cn
+alibaba.cdn.steampipe.steamcontent.com
+
+# 国内游戏geosite域名
+geosite:category-games@cn'
+	option ip_list '# steam直连IP
+45.121.184.0/24
+103.10.124.0/23
+103.28.54.0/24
+146.66.152.0/24
+146.66.155.0/24
+153.254.86.0/24
+155.133.224.0/22
+155.133.230.0/24
+155.133.232.0/23
+155.133.234.0/24
+155.133.236.0/22
+155.133.240.0/23
+155.133.244.0/23
+155.133.246.0/24
+155.133.248.0/21
+162.254.192.0/21
+185.25.182.0/23
+190.217.32.0/22
+192.69.96.0/22
+205.196.6.0/24
+208.64.200.0/22
+208.78.164.0/22
+205.185.194.0/24'
+
+config shunt_rules 'ProxyGame'
+	option remarks 'ProxyGame'
+	option domain_list '# steam 商店/客服/聊天/网页布局/API/二维码/Google云同步 代理URL
+steamcommunity.com
+www.steamcommunity.com
+store.steampowered.com
+checkout.steampowered.com
+api.steampowered.com
+help.steampowered.com
+login.steampowered.com
+store.akamai.steamstatic.com
+steambroadcast.akamaized.net
+steamvideo-a.akamaihd.net
+steamusercontent-a.akamaihd.net
+steamstore-a.akamaihd.net
+steamcommunity-a.akamaihd.net
+steamcdn-a.akamaihd.net
+steamuserimages-a.akamaihd.net
+community.akamai.steamstatic.com
+avatars.akamai.steamstatic.com
+community.steamstatic.com
+cdn.akamai.steamstatic.com
+avatars.steamstatic.com
+shared.akamai.steamstatic.com
+clan.akamai.steamstatic.com
+cdn.cloudflare.steamstatic.com
+community.cloudflare.steamstatic.com
+store.cloudflare.steamstatic.com
+avatars.cloudflare.steamstatic.com
+clan.cloudflare.steamstatic.com
+shared.cloudflare.steamstatic.com
+steam-chat.com
+steamcloud-ugc.storage.googleapis.com
+steamcloud-eu-ams.storage.googleapis.com
+steamcloud-eu-fra.storage.googleapis.com
+steamcloud-finland.storage.googleapis.com
+steamcloud-saopaulo.storage.googleapis.com
+steamcloud-singapore.storage.googleapis.com
+steamcloud-sydney.storage.googleapis.com
+steamcloud-taiwan.storage.googleapis.com
+steamcloud-eu.storage.googleapis.com
+
+geosite:category-games'
+
+config shunt_rules 'AIGC'
+	option remarks 'AIGC'
+	option domain_list 'geosite:category-ai-!cn
+geosite:apple-intelligence'
+
+config shunt_rules 'Streaming'
+	option remarks 'Streaming'
+	option domain_list 'geosite:netflix
+geosite:disney'
+
+config shunt_rules 'Proxy'
+	option remarks 'Proxy'
+	option domain_list 'geosite:geolocation-!cn'
+	option ip_list '149.154.160.0/20
+91.108.4.0/22
+91.108.56.0/24
+109.239.140.0/24
+67.198.55.0/24
+8.8.4.4
+8.8.8.8
+208.67.222.222
+208.67.220.220
+1.1.1.1
+1.1.1.2
+1.0.0.1
+9.9.9.9
+149.112.112.112
+2001:67c:4e8::/48
+2001:b28:f23c::/48
+2001:b28:f23d::/48
+2001:b28:f23f::/48
+2001:b28:f242::/48
+2001:4860:4860::8888
+2001:4860:4860::8844
+2606:4700:4700::1111
+2606:4700:4700::1001'
+
+config shunt_rules 'Direct'
+	option remarks 'Direct'
+	option domain_list 'geosite:cn'
+	option ip_list '223.5.5.5/32
+223.6.6.6/32
+119.29.29.29/32
+180.76.76.76/32
+114.114.114.114/32
+114.114.115.115/32
+1.12.12.12/32
+120.53.53.53/32
+geoip:cn
+geoip:private'
+
+config subscribe_list
+	option remark '1'
+	option url 'https://gh-proxy.com/https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub'
+	option allowInsecure '0'
+	option filter_keyword_mode '5'
+	option ss_type 'global'
+	option trojan_type 'global'
+	option vmess_type 'global'
+	option vless_type 'global'
+	option hysteria2_type 'global'
+	option domain_strategy 'global'
+	option auto_update '1'
+	option user_agent 'passwall'
+	option week_update '8'
+	option interval_update '6'
+	option md5 '819738f23a449c5b42106848e74828c7'
+
+config subscribe_list
+	option remark '2'
+	option url 'https://gh-proxy.com/https://raw.githubusercontent.com/telegeam/freenode/refs/heads/master/v2ray.txt'
+	option allowInsecure '0'
+	option filter_keyword_mode '5'
+	option ss_type 'global'
+	option trojan_type 'global'
+	option vmess_type 'global'
+	option vless_type 'global'
+	option hysteria2_type 'global'
+	option domain_strategy 'global'
+	option auto_update '1'
+	option user_agent 'passwall'
+	option week_update '7'
+	option time_update '13'
+	option md5 'e5959ab7914b84c16d44c6792b9f6c66'
+
+config nodes 'SHAbvLTG'
+	option tls '0'
+	option type 'Xray'
+	option timeout '60'
+	option tcp_guise 'none'
+	option group '1'
+	option security 'auto'
+	option transport 'raw'
+	list tcp_guise_http_host '4120-BE04-13ef56096989.457.PP.ua'
+	list tcp_guise_http_path '/kT5VHYcMrphesqROzSPoHrBo'
+	option port '180'
+	option uuid 'd13fc2f5-3e05-4795-81eb-44143a09e552'
+	option address '82.198.246.97'
+	option remarks '英国 V2CROSS.COM'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'tTF8GFVj'
+	option tls '1'
+	option protocol 'vmess'
+	option group '1'
+	option port '443'
+	option ws_path '/pyyY4ZVTyJV3vr9noOhn'
+	option remarks '美国 CloudFlare节点'
+	option add_mode '2'
+	option ws_host 'D-4bEd-b726-2c53A82E4925.664.qzZ.iO'
+	option uuid '0507fbcd-b983-43a7-8e1d-2c561960ad4f'
+	option timeout '60'
+	option tls_serverName 'd-4beD-b726-2c53a82e4925.664.qZz.io'
+	option tls_allowInsecure '0'
+	option alter_id '0'
+	option type 'Xray'
+	option transport 'ws'
+	option address 'd-4beD-b726-2c53a82e4925.664.qZz.io'
+	option security 'auto'
+
+config nodes '8fGmNtGd'
+	option type 'SS'
+	option timeout '60'
+	option group '1'
+	option password 'c69374da-2208-4cbd-b81e-cdf88b5e7f53'
+	option port '11688'
+	option address 'ss.037.node-for-bigairport.win'
+	option remarks '新加坡 Amazon数据中心'
+	option method 'aes-256-gcm'
+	option add_mode '2'
+
+config nodes 'C0zWEn2a'
+	option tls '0'
+	option type 'Xray'
+	option timeout '60'
+	option tcp_guise 'none'
+	option group '1'
+	option security 'auto'
+	option transport 'raw'
+	list tcp_guise_http_path '/'
+	option port '180'
+	option uuid 'd13fc2f5-3e05-4795-81eb-44143a09e552'
+	option address '82.198.246.97'
+	option remarks '英国 V2CROSS.COM'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'oOAGgSgo'
+	option tls '1'
+	option type 'sing-box'
+	option timeout '60'
+	option tcp_guise 'none'
+	option group '1'
+	option protocol 'trojan'
+	option tls_serverName 'www.semanticstaplegun.click'
+	option port '12420'
+	option transport 'tcp'
+	option address '80.173.231.254'
+	option remarks '西班牙 V2CROSS.COM'
+	option password 'wp9IsiY82uQhcmgNC1eoBM'
+	option tls_allowInsecure '0'
+	option add_mode '2'
+
+config nodes 'vDI6sG0J'
+	option ws_host 'nasnet-511952424.mcitel.co'
+	option type 'Xray'
+	option timeout '60'
+	option group '1'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/nasnet/cdn'
+	option transport 'ws'
+	option port '8080'
+	option uuid 'nasnet'
+	option address '172.67.204.84'
+	option remarks '美国 CloudFlare节点'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'Qmm884TC'
+	option ws_host 'nasnet-511952424.mcitel.co'
+	option type 'Xray'
+	option timeout '60'
+	option group '1'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/nasnet/cdn'
+	option transport 'ws'
+	option port '8080'
+	option uuid 'nasnet'
+	option address '104.21.69.44'
+	option remarks '美国 CloudFlare节点'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes '37cFzGS9'
+	option type 'SS'
+	option timeout '60'
+	option group '1'
+	option password 'tKko+YIAuuZ3d0hsPX2+D3NqepytG1Ha0VRLwBrf0Ak='
+	option port '8080'
+	option address '5.129.219.21'
+	option remarks '俄罗斯 V2CROSS.COM'
+	option method 'aes-128-gcm'
+	option add_mode '2'
+
+config nodes 'KTZyDp8t'
+	option ws_host 'teams.microsoft.com'
+	option type 'Xray'
+	option timeout '60'
+	option group '2'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/'
+	option transport 'ws'
+	option port '80'
+	option uuid '474e8680-701f-11ee-b436-205c6d5f5d78'
+	option address '108.181.10.17'
+	option remarks '🇨🇦 _CA_加拿大'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'tkEZFK5U'
+	option ws_host 'br.gy.youxuan-1.66688888.xyz'
+	option type 'Xray'
+	option timeout '60'
+	option group '2'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/tg@hkaa0'
+	option transport 'ws'
+	option port '80'
+	option uuid 'efcb7d7c-c582-46f5-eeff-0e553342528d'
+	option address '107.167.182.230'
+	option remarks '🇨🇳 _TW_台湾->🇺🇸_US_美国'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes '2Ta85GXm'
+	option ws_host 'flkf2.shabijichang.com'
+	option type 'Xray'
+	option timeout '60'
+	option group '2'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/'
+	option transport 'ws'
+	option port '80'
+	option uuid 'c458695d-6908-45c3-9512-e0c46418454c'
+	option address 'flkf2.shabijichang.com'
+	option remarks '🇩🇪 _US_美国->🇩🇪_DE_德国'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'OtMZyNmw'
+	option ws_host 'mrb2.shabijichang.com'
+	option type 'Xray'
+	option timeout '60'
+	option group '2'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/'
+	option transport 'ws'
+	option port '80'
+	option uuid 'c458695d-6908-45c3-9512-e0c46418454c'
+	option address 'mrb2.shabijichang.com'
+	option remarks '🇬🇧 _US_美国->🇬🇧_GB_英国_1'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'DAYoIyWs'
+	option ws_host 'ld2.shabijichang.com'
+	option type 'Xray'
+	option timeout '60'
+	option group '2'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/'
+	option transport 'ws'
+	option port '80'
+	option uuid 'c458695d-6908-45c3-9512-e0c46418454c'
+	option address 'ld2.shabijichang.com'
+	option remarks '🇬🇧 _US_美国->🇬🇧_GB_英国_2'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'Mf9gKCew'
+	option tls '0'
+	option type 'Xray'
+	option timeout '60'
+	option tcp_guise 'none'
+	option group '2'
+	option security 'auto'
+	option transport 'raw'
+	list tcp_guise_http_path '/'
+	option port '180'
+	option uuid 'd13fc2f5-3e05-4795-81eb-44143a09e552'
+	option address '82.198.246.97'
+	option remarks '🇬🇧 英国 V2CROSS.COM'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'hzI0LUXW'
+	option ws_host 'a.109420.xyz'
+	option type 'Xray'
+	option timeout '60'
+	option group '2'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/'
+	option transport 'ws'
+	option port '80'
+	option uuid '5180444a-4756-43b4-960b-49eb9052e4e8'
+	option address '104.17.18.26'
+	option remarks '🇮🇳 _US_美国->🇮🇳_IN_印度_1'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'YIo0kmPb'
+	option ws_host 'a.109420.xyz'
+	option type 'Xray'
+	option timeout '60'
+	option group '2'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/'
+	option transport 'ws'
+	option port '80'
+	option uuid '5180444a-4756-43b4-960b-49eb9052e4e8'
+	option address '104.26.8.44'
+	option remarks '🇮🇳 _US_美国->🇮🇳_IN_印度_2'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes '5F6q4LhY'
+	option ws_host 'mm2.shabijichang.com'
+	option type 'Xray'
+	option timeout '60'
+	option group '2'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/'
+	option transport 'ws'
+	option port '80'
+	option uuid 'c458695d-6908-45c3-9512-e0c46418454c'
+	option address 'mm2.shabijichang.com'
+	option remarks '🇮🇳 _US_美国->🇮🇳_IN_印度_3'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'N4jC3VvB'
+	option ws_host 'mm3.shabijichang.com'
+	option type 'Xray'
+	option timeout '60'
+	option group '2'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/'
+	option transport 'ws'
+	option port '80'
+	option uuid 'c458695d-6908-45c3-9512-e0c46418454c'
+	option address 'mm3.shabijichang.com'
+	option remarks '🇮🇳 _US_美国->🇮🇳_IN_印度_4'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'LnCa8fOH'
+	option tls '1'
+	option protocol 'vmess'
+	option group '2'
+	option port '30000'
+	option ws_path '/path/1696251522438'
+	option remarks '🇳🇱 _US_美国->🇳🇱_NL_荷兰'
+	option add_mode '2'
+	option ws_host 'www.42077230.xyz'
+	option uuid '418048af-a293-4b99-9b0c-98ca3580dd24'
+	option timeout '60'
+	option tls_serverName 'www.42077230.xyz'
+	option tls_allowInsecure '0'
+	option alter_id '64'
+	option type 'Xray'
+	option transport 'ws'
+	option address '45.199.138.191'
+	option security 'auto'
+
+config nodes 'HOYT7w2Y'
+	option ws_host 'jd3.shabijichang.com'
+	option type 'Xray'
+	option timeout '60'
+	option group '2'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/'
+	option transport 'ws'
+	option port '80'
+	option uuid 'c458695d-6908-45c3-9512-e0c46418454c'
+	option address 'jd3.shabijichang.com'
+	option remarks '🇸🇦 _US_美国->🇸🇦_SA_沙特阿拉伯'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'TnN8QbD0'
+	option type 'Xray'
+	option timeout '60'
+	option group '2'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/vmws'
+	option transport 'ws'
+	option port '2082'
+	option uuid 'e31ca750-71f7-11ee-b920-1239d0255272'
+	option address '206.168.190.219'
+	option remarks '🇺🇸 _US_美国_1'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'Hhyp0x6O'
+	option ws_host 'wnd2.shabijichang.com'
+	option type 'Xray'
+	option timeout '60'
+	option group '2'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/'
+	option transport 'ws'
+	option port '80'
+	option uuid 'c458695d-6908-45c3-9512-e0c46418454c'
+	option address 'wnd2.shabijichang.com'
+	option remarks '🇺🇸 _US_美国_2'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'zvpOPqEm'
+	option tls '1'
+	option protocol 'vmess'
+	option group '2'
+	option port '30000'
+	option ws_path '/path/1696682720138'
+	option remarks '🇺🇸 _US_美国_3'
+	option add_mode '2'
+	option ws_host 'www.19229362.xyz'
+	option uuid '4ec0ae62-de09-4029-904a-0313d4628ecf'
+	option timeout '60'
+	option tls_serverName 'www.19229362.xyz'
+	option tls_allowInsecure '0'
+	option alter_id '64'
+	option type 'Xray'
+	option transport 'ws'
+	option address '45.199.138.186'
+	option security 'auto'
+
+config nodes 'CNifcosS'
+	option ws_host 'wnd3.shabijichang.com'
+	option type 'Xray'
+	option timeout '60'
+	option group '2'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/'
+	option transport 'ws'
+	option port '80'
+	option uuid 'c458695d-6908-45c3-9512-e0c46418454c'
+	option address 'wnd3.shabijichang.com'
+	option remarks '🇺🇸 _US_美国_4'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'vpBLE80I'
+	option ws_host 'sbl2.shabijichang.com'
+	option type 'Xray'
+	option timeout '60'
+	option group '2'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/'
+	option transport 'ws'
+	option port '80'
+	option uuid 'c458695d-6908-45c3-9512-e0c46418454c'
+	option address '104.21.75.246'
+	option remarks '🇺🇸 _US_美国_5'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'Qvhgkiss'
+	option ws_host 'nasnet-511952424.mcitel.co'
+	option type 'Xray'
+	option timeout '60'
+	option group '2'
+	option tls '0'
+	option security 'auto'
+	option ws_path '/nasnet/cdn'
+	option transport 'ws'
+	option port '8080'
+	option uuid 'nasnet'
+	option address '172.67.204.84'
+	option remarks '🇺🇸 美国 CloudFlare节点'
+	option protocol 'vmess'
+	option alter_id '0'
+	option add_mode '2'
+
+config nodes 'thQR5Co4'
+	option tls '1'
+	option protocol 'vmess'
+	option group '2'
+	option port '8443'
+	option ws_path '/'
+	option remarks '🇺🇸 美国 CloudFlare节点'
+	option add_mode '2'
+	option ws_host 'c7.620720.xyz'
+	option uuid '516d8a7a-3f0b-41d3-bad0-246116381516'
+	option timeout '60'
+	option tls_serverName 'c7.620720.xyz'
+	option tls_allowInsecure '0'
+	option alter_id '0'
+	option type 'Xray'
+	option transport 'ws'
+	option address 'c7.620720.xyz'
+	option security 'auto'
+
