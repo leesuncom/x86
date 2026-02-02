@@ -30,3 +30,28 @@ config include 'passwall_server'
 	option path '/var/etc/passwall_server.include'
 	option reload '1'
 
+config redirect
+	option name 'Divert-DNS, port 53'
+	option src 'lan'
+	option dest 'lan'
+	option src_dport '53'
+	option dest_port '53'
+	option target 'DNAT'
+
+config rule
+	option name 'Reject-DoT, port 853'
+	option src 'lan'
+	option dest 'wan'
+	option dest_port '853'
+	option proto 'tcp'
+	option target 'REJECT'
+	option enabled '0'
+
+config redirect
+	option name 'Divert-DNS, port 5353'
+	option src 'lan'
+	option dest 'lan'
+	option src_dport '5353'
+	option dest_port '53'
+	option target 'DNAT'
+
