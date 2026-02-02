@@ -22,7 +22,7 @@ disabled_server_names = []
 
 # 代理设置 - 确保代理服务正常运行，mosdns在启用代理这里就不要启用了。
 # proxy = 'socks5://127.0.0.1:7898'
-force_tcp = false
+# force_tcp = false
 # http3 = false
 
 # 超时和连接设置
@@ -54,14 +54,14 @@ reject_ttl = 300
 # 转发规则：指定域名用特定DNS解析（需确保规则文件格式正确！）
 # 格式要求：每行一条，如“example.com 9.9.9.9,8.8.8.8”（域名+逗号分隔的IP）
 # 错误会导致dnscrypt-proxy崩溃，需检查：/etc/dnscrypt-proxy2/dnscrypt-forwarding-rules.txt
-forwarding_rules = 'dnscrypt-forwarding-rules.txt'
-cloaking_rules = 'dnscrypt-cloaking-rules.txt'
+forwarding_rules = '/etc/dnscrypt-proxy2/dnscrypt-forwarding-rules.txt'
+cloaking_rules = '/etc/dnscrypt-proxy2/dnscrypt-cloaking-rules.txt'
 cloak_ttl = 3600
 cloak_ptr = false
 
 # 缓存设置
 cache = true
-cache_size = 0 # 增加缓存大小
+cache_size = 102400 # 增加缓存大小
 cache_min_ttl = 300  # 减少最小TTL
 cache_max_ttl = 3600  # 减少最大TTL，保证及时更新
 cache_neg_min_ttl = 30
@@ -69,7 +69,7 @@ cache_neg_max_ttl = 300
 
 # captive portals（ captive portal 检测，避免公共网络拦截）
 [captive_portals]
-map_file = 'dnscrypt-captive-portals.txt'
+map_file = '/etc/dnscrypt-proxy2/dnscrypt-captive-portals.txt'
 
 # 本地 DoH 服务 - 确保证书路径正确
 [local_doh]
@@ -92,22 +92,22 @@ cert_key_file = '/etc/dnscrypt-proxy2/mosdns-key.pem'
 
 # 列表设置
 [blocked_names]
-  blocked_names_file = 'dnscrypt-blacklist-domains.txt'
+  blocked_names_file = '/etc/dnscrypt-proxy2/dnscrypt-blacklist-domains.txt'
   log_file = '/tmp/log/dnscrypt-blacklist-domains.log'
   log_format = 'tsv'
 
 [blocked_ips]
-  blocked_ips_file = 'dnscrypt-blacklist-ips.txt'
+  blocked_ips_file = '/etc/dnscrypt-proxy2/dnscrypt-blacklist-ips.txt'
   log_file = '/tmp/log/dnscrypt-blacklist-ips.log'
   log_format = 'tsv'
 
 [allowed_names]
-  allowed_names_file = 'dnscrypt-whitelist-domains.txt'
+  allowed_names_file = '/etc/dnscrypt-proxy2/dnscrypt-whitelist-domains.txt'
   log_file = '/tmp/log/dnscrypt-whitelisted-domains.log'
   log_format = 'tsv'
 
 [allowed_ips]
-  allowed_ips_file = 'dnscrypt-whitelist-ips.txt'
+  allowed_ips_file = '/etc/dnscrypt-proxy2/dnscrypt-whitelist-ips.txt'
   log_file = '/tmp/log/dnscrypt-whitelisted-ips.log'
   log_format = 'tsv'
 
