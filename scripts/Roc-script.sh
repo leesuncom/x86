@@ -39,13 +39,12 @@ git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config feeds/luc
 git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
 
 # replace MOSdns to lastest update
-rm -rf feeds/smpackage/luci-app-mosdns
-rm -rf feeds/smpackage/mosdns
+rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-mosdns
 rm -rf feeds/packages/utils/v2dat
 rm -rf feeds/packages/net/v2ray-geodata
-git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+git clone --depth=1 https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+git clone --depth=1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
 ### PassWall & OpenClash ###
 
