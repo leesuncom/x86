@@ -10,7 +10,7 @@ env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt.git
   REPO_BRANCH: master
   CONFIG_FILE: configs/x86-64.config
-  # GENERAL_CONFIG_FILE: configs/General.config
+  GENERAL_CONFIG_FILE: configs/General.config
   DIY_SCRIPT: scripts/Roc-script.sh
   CLASH_KERNEL: amd64
   UPLOAD_BIN_DIR: false
