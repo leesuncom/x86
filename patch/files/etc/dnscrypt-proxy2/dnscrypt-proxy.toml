@@ -1,5 +1,5 @@
 # 服务器选择 - 简化列表，只保留最可靠的服务器
-# server_names = ['yandex', 'quad9-doh-ip4-port443-nofilter-pri']
+# server_names = ['yandex', 'dnscry.pt-mumbai-ipv4']
 
 # 监听地址
 listen_addresses = ['127.0.0.1:5353']
@@ -22,7 +22,7 @@ disabled_server_names = []
 
 # 代理设置 - 确保代理服务正常运行，mosdns在启用代理这里就不要启用了。
 # proxy = 'socks5://127.0.0.1:7898'
-# force_tcp = false
+force_tcp = false
 # http3 = false
 
 # 超时和连接设置
@@ -31,14 +31,14 @@ keepalive = 30
 cert_refresh_delay = 240
 
 # 引导解析器 - 使用国内稳定的 DNS
-bootstrap_resolvers = ['119.29.29.29:53', '223.5.5.5:53']
-# bootstrap_resolvers = ['1.1.1.1:53', '8.8.8.8:53', '9.9.9.9:53']
+# bootstrap_resolvers = ['119.29.29.29:53', '223.5.5.5:53']
+bootstrap_resolvers = ['1.1.1.1:53', '8.8.8.8:53', '9.9.9.9:53']
 ignore_system_dns = true
 
 # 网络探测
 netprobe_timeout = 30
-# netprobe_address = '1.1.1.1:53'
-netprobe_address = '119.29.29.29:53'
+netprobe_address = '1.1.1.1:53'
+# netprobe_address = '119.29.29.29:53'
 
 # 日志设置
 log_files_max_size = 10
@@ -61,7 +61,7 @@ cloak_ptr = false
 
 # 缓存设置
 cache = true
-cache_size = 102400 # 增加缓存大小
+cache_size = 10240  # 增加缓存大小
 cache_min_ttl = 300  # 减少最小TTL
 cache_max_ttl = 3600  # 减少最大TTL，保证及时更新
 cache_neg_min_ttl = 30
@@ -83,32 +83,32 @@ cert_key_file = '/etc/dnscrypt-proxy2/mosdns-key.pem'
 
 # 日志设置
 [query_log]
-  file = '/tmp/log/dnscrypt-query.log'
+  file = '/var/log/dnscrypt-query.log'
   format = 'tsv'
   ignored_qtypes = ['DNSKEY', 'NS', 'OPT']
 [nx_log]
-  file = '/tmp/log/dnscrypt-nxdomain.log'
+  file = '/var/log/dnscrypt-nxdomain.log'
   format = 'tsv'
 
 # 列表设置
 [blocked_names]
   blocked_names_file = '/etc/dnscrypt-proxy2/dnscrypt-blacklist-domains.txt'
-  log_file = '/tmp/log/dnscrypt-blacklist-domains.log'
+  log_file = '/var/log/dnscrypt-blacklist-domains.log'
   log_format = 'tsv'
 
 [blocked_ips]
   blocked_ips_file = '/etc/dnscrypt-proxy2/dnscrypt-blacklist-ips.txt'
-  log_file = '/tmp/log/dnscrypt-blacklist-ips.log'
+  log_file = '/var/log/dnscrypt-blacklist-ips.log'
   log_format = 'tsv'
 
 [allowed_names]
   allowed_names_file = '/etc/dnscrypt-proxy2/dnscrypt-whitelist-domains.txt'
-  log_file = '/tmp/log/dnscrypt-whitelisted-domains.log'
+  log_file = '/var/log/dnscrypt-whitelisted-domains.log'
   log_format = 'tsv'
 
 [allowed_ips]
   allowed_ips_file = '/etc/dnscrypt-proxy2/dnscrypt-whitelist-ips.txt'
-  log_file = '/tmp/log/dnscrypt-whitelisted-ips.log'
+  log_file = '/var/log/dnscrypt-whitelisted-ips.log'
   log_format = 'tsv'
 
 # 计划任务
@@ -175,7 +175,7 @@ routes = [
    { server_name = '*', via = ['anon-cs-singapore', 'anon-cs-tokyo'] }
 ]
 skip_incompatible = true
-direct_cert_fallback = true
+direct_cert_fallback = false
 
 # DNS64
 [dns64]
