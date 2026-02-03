@@ -189,6 +189,8 @@ jobs:
         mv -f $OPENWRT_PATH/bin/packages/*/*/*.apk packages/ 2>/dev/null || echo "没有找到apk包文件"
         tar -zcf x86.64.Packages.tar.gz packages
         rm -rf packages feeds.buildinfo version.buildinfo sha256sums profiles.json
+        echo "删除包含-ext4的x86_64固件文件..."
+        rm -f ./immortalwrt-*-x86-64-generic-ext4-*.img.gz
         echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
 
     - name: Upload Firmware To Artifact(将固件上传到Artifact)
