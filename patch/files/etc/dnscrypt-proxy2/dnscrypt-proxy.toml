@@ -10,12 +10,12 @@ ipv4_servers = true
 ipv6_servers = false
 
 # 协议支持
-dnscrypt_servers = true
+dnscrypt_servers = false
 doh_servers = true
-odoh_servers = true
+odoh_servers = false
 
 # 服务器要求
-require_dnssec = true
+require_dnssec = false
 require_nolog = true
 require_nofilter = true
 disabled_server_names = []
@@ -55,9 +55,9 @@ reject_ttl = 300
 # 格式要求：每行一条，如“example.com 9.9.9.9,8.8.8.8”（域名+逗号分隔的IP）
 # 错误会导致dnscrypt-proxy崩溃，需检查：/etc/dnscrypt-proxy2/dnscrypt-forwarding-rules.txt
 forwarding_rules = '/etc/dnscrypt-proxy2/dnscrypt-forwarding-rules.txt'
-cloaking_rules = '/etc/dnscrypt-proxy2/dnscrypt-cloaking-rules.txt'
-cloak_ttl = 3600
-cloak_ptr = false
+# cloaking_rules = '/etc/dnscrypt-proxy2/dnscrypt-cloaking-rules.txt'
+# cloak_ttl = 3600
+# cloak_ptr = false
 
 # 缓存设置
 cache = true
@@ -69,7 +69,7 @@ cache_neg_max_ttl = 300
 
 # captive portals（ captive portal 检测，避免公共网络拦截）
 [captive_portals]
-map_file = '/etc/dnscrypt-proxy2/dnscrypt-captive-portals.txt'
+# map_file = '/etc/dnscrypt-proxy2/dnscrypt-captive-portals.txt'
 
 # 本地 DoH 服务 - 确保证书路径正确
 [local_doh]
@@ -85,14 +85,14 @@ cert_key_file = '/etc/dnscrypt-proxy2/mosdns-key.pem'
 [query_log]
   file = '/var/log/dnscrypt-query.log'
   format = 'tsv'
-  ignored_qtypes = ['DNSKEY', 'NS', 'OPT']
+  # ignored_qtypes = ['DNSKEY', 'NS', 'OPT']
 [nx_log]
   file = '/var/log/dnscrypt-nxdomain.log'
   format = 'tsv'
 
 # 列表设置
 [blocked_names]
-  blocked_names_file = '/etc/dnscrypt-proxy2/dnscrypt-blacklist-domains.txt'
+  # blocked_names_file = '/etc/dnscrypt-proxy2/dnscrypt-blacklist-domains.txt'
   log_file = '/var/log/dnscrypt-blacklist-domains.log'
   log_format = 'tsv'
 
@@ -142,22 +142,6 @@ cert_key_file = '/etc/dnscrypt-proxy2/mosdns-key.pem'
     minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
     refresh_delay = 72
     prefix = ''
-  [sources.parental-control]
-    urls = ['https://download.dnscrypt.info/resolvers-list/v3/parental-control.md', 'https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/parental-control.md', 'https://ipv6.download.dnscrypt.info/resolvers-list/v3/parental-control.md']
-    cache_file = 'parental-control.md'
-    minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
-  [sources.odoh-servers]
-    urls = ['https://download.dnscrypt.info/resolvers-list/v3/odoh-servers.md', 'https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/odoh-servers.md', 'https://ipv6.download.dnscrypt.info/resolvers-list/v3/odoh-servers.md']
-    cache_file = 'odoh-servers.md'
-    minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
-    refresh_delay = 24
-    prefix = ''
-  [sources.odoh-relays]
-    urls = ['https://download.dnscrypt.info/resolvers-list/v3/odoh-relays.md', 'https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/odoh-relays.md', 'https://ipv6.download.dnscrypt.info/resolvers-list/v3/odoh-relays.md']
-    cache_file = 'odoh-relays.md'
-    minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
-    refresh_delay = 24
-    prefix = ''
 
 # 兼容性设置
 [broken_implementations]
@@ -165,17 +149,17 @@ fragments_blocked = ['cisco', 'cisco-ipv6', 'cisco-familyshield', 'cisco-familys
 
 # 客户端证书认证
 [doh_client_x509_auth]
-creds = [
-   { server_name='*', client_cert='mosdns-cert.pem', client_key='mosdns-key.pem' }
-]
+# creds = [
+#    { server_name='*', client_cert='mosdns-cert.pem', client_key='mosdns-key.pem' }
+# ]
 
 # 匿名 DNS - 简化路由设置
 [anonymized_dns]
-routes = [
-   { server_name = '*', via = ['anon-cs-singapore', 'anon-cs-tokyo'] }
-]
-skip_incompatible = true
-direct_cert_fallback = false
+# routes = [
+#    { server_name = '*', via = ['anon-cs-singapore', 'anon-cs-tokyo'] }
+# ]
+# skip_incompatible = false
+# direct_cert_fallback = false
 
 # DNS64
 [dns64]
