@@ -4,7 +4,6 @@ config defaults
 	option output 'ACCEPT'
 	option forward 'ACCEPT'
 	option flow_offloading '1'
-	option fullcone '1'
 
 config zone
 	option name 'lan'
@@ -22,6 +21,7 @@ config redirect
 	option src_dport '53'
 	option dest_port '53'
 	option target 'DNAT'
+	option family 'ipv4'
 
 config rule
 	option name 'Reject-DoT, port 853'
@@ -39,6 +39,7 @@ config redirect
 	option src_dport '5353'
 	option dest_port '53'
 	option target 'DNAT'
+	option family 'ipv4'
 
 config include 'openclash'
 	option type 'script'
