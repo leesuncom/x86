@@ -1,3 +1,3 @@
-0 1 * * * /etc/updatew.sh  > /tmp/update-log.txt 2>&1
+03 1 * * * /etc/updatew.sh  > /tmp/update-log.txt 2>&1
 0 * * * * /etc/hosts.sh  >> /tmp/hosts-log.txt 2>&1
 
