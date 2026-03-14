@@ -1,0 +1,51 @@
+{
+  "id": "akvod",
+  "name": "爱看影视",
+  "api": "https://www.akvod.cc",
+  "nsfw": false,
+  "type": 1,
+  "extra": {
+    "gfw": false,
+    "searchLimit": 10,
+    "js": {
+      "category": [
+        {
+          "text": "首页",
+          "id": "/"
+        },
+        {
+          "text": "电影",
+          "id": "movie"
+        },
+        {
+          "text": "剧集",
+          "id": "tv"
+        },
+        {
+          "text": "综艺",
+          "id": "variety"
+        },
+        {
+          "text": "动漫",
+          "id": "anime"
+        },
+        {
+          "text": "日日韩剧",
+          "id": "krjp"
+        },
+        {
+          "text": "美剧",
+          "id": "us"
+        },
+        {
+          "text": "港台剧",
+          "id": "hk"
+        }
+      ],
+      "home": "const cate=env.get(\"category\");const page=env.get(\"page\");if(cate==\"/\"){const $=utils_1.kitty.load(await(0,utils_1.req)(env.baseUrl));const hot=$(\".hot-list .item\").toArray().map(item=>{const a=$(item).find(\"a\");return{id:a.attr(\"href\"),title:a.attr(\"title\"),cover:a.find(\"img\").attr(\"src\"),remark:$(item).find(\".score\").text()}});return{type:\"complex\",data:[{type:\"markdown\",extra:{markdown:`\\n> 爱看影视 | 高清免费在线观看\\n`}},{type:\"list\",title:\"热门推荐\",videos:hot}]}}const urlMap={\"movie\":\"/movie/page/${page}.html\",\"tv\":\"/tv/page/${page}.html\",\"variety\":\"/variety/page/${page}.html\",\"anime\":\"/anime/page/${page}.html\",\"krjp\":\"/krjp/page/${page}.html\",\"us\":\"/us/page/${page}.html\",\"hk\":\"/hk/page/${page}.html\"};const url=`${env.baseUrl}${urlMap[cate]}`;const $=utils_1.kitty.load(await(0,utils_1.req)(url));return $(\".vod-list .item\").toArray().map(item=>{const a=$(item).find(\"a\");return{id:a.attr(\"href\"),title:a.attr(\"title\"),cover:a.find(\"img\").attr(\"src\"),remark:$(item).find(\".update-info\").text()}})",
+      "detail": "const id=env.get(\"movieId\");const url=`${env.baseUrl}${id}`;const $=utils_1.kitty.load(await(0,utils_1.req)(url));const desc=$(\".vod-desc\").text().trim()||\"暂无简介\";const tabs=$(\".play-tabs li\").toArray().map(item=>$(item).text().trim());const playLists=$(\".play-list\").toArray().map(list=>{return $(list).find(\"a\").toArray().map(item=>{return{id:$(item).attr(\"href\"),text:$(item).text().trim()}})});const playlist=tabs.map((title,i)=>({title,videos:playLists[i]}));return{desc,playlist}",
+      "search": "const wd=env.get(\"keyword\");const page=env.get(\"page\");const url=`${env.baseUrl}/search?wd=${encodeURIComponent(wd)}&page=${page}`;const $=utils_1.kitty.load(await(0,utils_1.req)(url));return $(\".search-result .item\").toArray().map(item=>{const a=$(item).find(\"a\");return{id:a.attr(\"href\"),title:a.attr(\"title\"),cover:a.find(\"img\").attr(\"src\"),remark:$(item).find(\"type-tag\").text()}})",
+      "parseIframe": "return utils_1.kitty.utils.getM3u8WithIframe(env)"
+    }
+  }
+}
