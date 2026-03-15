@@ -1,16 +1,18 @@
 [
   {
-    "id": "test",
-    "name": "测试JS源",
+    "id": "天天",
+    "name": "⛅天天",
     "type": 1,
-    "api": "https://example.com",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "api": "csp_TTian",
     "extra": {
-      "js": {
-        "category": "getCategory",
-        "home": "getHome",
-        "search": "getSearch",
-        "detail": "getDetail"
-      }
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "7lj763gg0939791h1l3888jig44gi291li"
     }
   }
 ]
