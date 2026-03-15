@@ -1,20 +1,25 @@
 {
   "sites": [
     {
-      "id": "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
+      "id": "Tg|豆瓣",
       "name": "🔍Tg豆瓣┃本接口免费-🈲贩卖",
-      "type": 0,
-      "logo": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/json/NanFeng.gif",
-      "desc": "",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_TgYunDouBanPan | 可搜索 | 不可修改",
       "nsfw": false,
       "status": true,
-      "api": "csp_TgYunDouBanPan",
+      "api": "",
       "extra": {
-        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
+        "jiexiUrl": "",
         "gfw": false,
         "searchLimit": 20,
-        "category": "",
-        "template": "",
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
         "sniffer": {
           "mode": 0,
           "timeout": 10000,
@@ -26,20 +31,25 @@
       }
     },
     {
-      "id": "2b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bee",
+      "id": "csp_DouBan",
       "name": "🔍豆瓣",
-      "type": 0,
-      "logo": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/json/NanFeng.gif",
-      "desc": "",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_DouBan | 可搜索 | 快速搜索 | 可筛选",
       "nsfw": false,
       "status": true,
-      "api": "csp_DouBan",
+      "api": "",
       "extra": {
-        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
+        "jiexiUrl": "",
         "gfw": false,
         "searchLimit": 20,
-        "category": "",
-        "template": "",
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
         "sniffer": {
           "mode": 0,
           "timeout": 10000,
@@ -51,51 +61,25 @@
       }
     },
     {
-      "id": "3b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bef",
+      "id": "ConfigCenter",
       "name": "🅿网盘配置中心",
-      "type": 0,
-      "logo": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/json/NanFeng.gif",
-      "desc": "",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_ConfigCenter | 不可搜索 | 不可修改",
       "nsfw": false,
       "status": true,
-      "api": "csp_ConfigCenter",
+      "api": "",
       "extra": {
-        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
+        "jiexiUrl": "",
         "gfw": false,
         "searchLimit": 20,
-        "category": "",
-        "template": "",
-        "sniffer": {
-          "mode": 0,
-          "timeout": 10000,
-          "customRegex": "",
-          "exclude": "",
-          "script": "",
-          "initScript": ""
-        }
-      }
-    },
-    {
-      "id": "4b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bef",
-      "name": "🐯虎牙直播",
-      "type": 1,
-      "logo": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/json/NanFeng.gif",
-      "desc": "",
-      "nsfw": false,
-      "status": true,
-      "api": "https://git.yylx.win/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/drpy2.js",
-      "extra": {
-        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
-        "gfw": false,
-        "searchLimit": 10,
         "js": {
-          "category": "",
-          "home": "",
+          "category": "getCategory | []",
+          "home": "getHome",
           "search": "",
-          "detail": "",
-          "parseIframe": ""
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
         },
-        "template": "",
         "sniffer": {
           "mode": 0,
           "timeout": 10000,
@@ -107,26 +91,25 @@
       }
     },
     {
-      "id": "5b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bef",
-      "name": "🐟斗鱼直播",
+      "id": "csp_GuaZi",
+      "name": "🍉瓜子",
       "type": 1,
-      "logo": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/json/NanFeng.gif",
-      "desc": "",
+      "logo": "",
+      "desc": "API: csp_GuaZi | 可搜索 | 不可修改",
       "nsfw": false,
       "status": true,
-      "api": "https://git.yylx.win/raw.githubusercontent.com/yoursmile66/TVBox/main/js/lib/drpy2.min.js",
+      "api": "",
       "extra": {
-        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
+        "jiexiUrl": "",
         "gfw": false,
-        "searchLimit": 10,
+        "searchLimit": 20,
         "js": {
-          "category": "",
-          "home": "",
-          "search": "",
-          "detail": "",
-          "parseIframe": ""
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
         },
-        "template": "",
         "sniffer": {
           "mode": 0,
           "timeout": 10000,
@@ -138,20 +121,895 @@
       }
     },
     {
-      "id": "6b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bef",
-      "name": "⚡Youtube",
-      "type": 0,
-      "logo": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/json/NanFeng.gif",
-      "desc": "",
+      "id": "天天",
+      "name": "⛅天天",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_TTian | 可搜索 | 快速搜索 | 可筛选",
       "nsfw": false,
       "status": true,
-      "api": "csp_Youtube",
+      "api": "",
       "extra": {
-        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "金牌",
+      "name": "🥇金牌",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Jpys | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "巧技二",
+      "name": "💢聚搜",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_qiao2 | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "qiao2",
+      "name": "💢聚搜2",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_qiao2 | 播放类型:2 | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "仓鼠",
+      "name": "🐹仓鼠",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Xdai",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "橘子",
+      "name": "🍊橘子",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Qiji",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "优质",
+      "name": "🌈优质",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Qiji | 播放类型:2 | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "趣看",
+      "name": "🥽趣看",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Qiji | 播放类型:2 | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "王子",
+      "name": "🍟王子",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Xdai",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "灵虎",
+      "name": "🦁灵虎",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Xdai",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "永夜",
+      "name": "🌙永夜",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Xdai | 播放类型:2",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "番薯",
+      "name": "💢番薯",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Xdai | 播放类型:2",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "厂长",
+      "name": "🏭厂长",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_CzzyAmns | 可搜索 | 快速搜索 | 可筛选 | 可修改 | 自定义Jar",
+      "nsfw": false,
+      "status": true,
+      "api": "https://jihulab.com/yoursmile2/TVBox/-/raw/master/custom_spider.jar",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "csp_Jianpian",
+      "name": "✂️荐片",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Jianpian | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "csp_SaoHuo",
+      "name": "🔥骚火",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_SaoHuo | 播放类型:2 | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "csp_Qiyou",
+      "name": "🦌奇优",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Qiyou | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "csp_Lkdy",
+      "name": "🏔️来看",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Lkdy | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "剧圈圈",
+      "name": "⭕剧圈圈",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_XYQHiker | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "document.getElementById('playleft').children[0].contentWindow.document.getElementById('start').click()",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "农民",
+      "name": "👩‍🌾农民",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_XYQHiker | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "永乐",
+      "name": "🍰永乐",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_XBPQ | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "面包",
+      "name": "🎁面包",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_XBPQ | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "ZXZJ",
+      "name": "🏠在线",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Zxzj | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "低端",
+      "name": "📺低端",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_XYQHiker | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "csp_Ikanbot",
+      "name": "👾Ikanbot",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Ikanbot | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "csp_Dygang",
+      "name": "🧲电影港",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Dygang | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "csp_xlys",
+      "name": "🧲修罗",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Bdys01 | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "csp_New6v",
+      "name": "🧲新6V",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_New6v | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "csp_DyGod",
+      "name": "🧲电影天堂",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_DyGod | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "csp_QnMp4",
+      "name": "🧲七妹",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_QnMp4 | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "csp_MeijuMi",
+      "name": "🧲美剧迷",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_MeijuMi | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
         "gfw": true,
         "searchLimit": 20,
-        "category": "",
-        "template": "",
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
         "sniffer": {
           "mode": 0,
           "timeout": 10000,
@@ -161,26 +1019,117 @@
           "initScript": ""
         }
       }
-    }
-    // 其余站点可按相同规则补充
-  ],
-  "data": [
-    // 如需独立的data数组，可复制sites内容或按需调整
+    },
     {
-      "id": "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
-      "name": "🔍Tg豆瓣┃本接口免费-🈲贩卖",
-      "type": 0,
-      "logo": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/json/NanFeng.gif",
-      "desc": "",
+      "id": "csp_BLSGod",
+      "name": "🧲80S影视",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_BLSGod | 可搜索 | 快速搜索 | 可筛选",
       "nsfw": false,
       "status": true,
-      "api": "csp_TgYunDouBanPan",
+      "api": "",
       "extra": {
-        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
+        "jiexiUrl": "",
         "gfw": false,
         "searchLimit": 20,
-        "category": "",
-        "template": "",
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "csp_SP360",
+      "name": "💘360",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_SP360 | 可搜索 | 快速搜索 | 可筛选 | 可修改",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "csp_Dm84",
+      "name": "🚌动漫巴士",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_Dm84 | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": true,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 0,
+          "timeout": 10000,
+          "customRegex": "",
+          "exclude": "",
+          "script": "",
+          "initScript": ""
+        }
+      }
+    },
+    {
+      "id": "嗷呜动漫",
+      "name": "🙀嗷呜动漫",
+      "type": 1,
+      "logo": "",
+      "desc": "API: csp_XYQHiker | 可搜索 | 快速搜索 | 可筛选",
+      "nsfw": false,
+      "status": true,
+      "api": "",
+      "extra": {
+        "jiexiUrl": "",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory | []",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
         "sniffer": {
           "mode": 0,
           "timeout": 10000,
@@ -192,84 +1141,6 @@
       }
     }
   ],
-  "lives": [
-    {
-      "id": "7b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bef",
-      "name": "Yoursmile",
-      "type": 0,
-      "url": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/live.txt",
-      "playerType": 1,
-      "ua": "okhttp/3.15",
-      "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}",
-      "logo": "https://epg.112114.xyz/logo/{name}.png",
-      "status": true,
-      "desc": "",
-      "nsfw": false
-    },
-    {
-      "id": "8b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bef",
-      "name": "feiyang.allinone",
-      "type": 0,
-      "url": "http://127.0.0.1:35457/tv.m3u",
-      "playerType": 0,
-      "ua": "okhttp/3.15",
-      "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}",
-      "logo": "https://epg.112114.xyz/logo/{name}.png",
-      "status": true,
-      "desc": "",
-      "nsfw": false
-    },
-    {
-      "id": "9b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bef",
-      "name": "feiyang.bililive",
-      "type": 0,
-      "url": "http://127.0.0.1:35457/bililive.m3u",
-      "playerType": 0,
-      "ua": "okhttp/3.15",
-      "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}",
-      "logo": "https://epg.112114.xyz/logo/{name}.png",
-      "status": true,
-      "desc": "",
-      "nsfw": false
-    },
-    {
-      "id": "ab9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bef",
-      "name": "feiyang.huyayqk",
-      "type": 0,
-      "url": "http://127.0.0.1:35457/huyayqk.m3u",
-      "playerType": 0,
-      "ua": "okhttp/3.15",
-      "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}",
-      "logo": "https://epg.112114.xyz/logo/{name}.png",
-      "status": true,
-      "desc": "",
-      "nsfw": false
-    },
-    {
-      "id": "bb9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bef",
-      "name": "feiyang.douyuyqk",
-      "type": 0,
-      "url": "http://127.0.0.1:35457/douyuyqk.m3u",
-      "playerType": 0,
-      "ua": "okhttp/3.15",
-      "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}",
-      "logo": "https://epg.112114.xyz/logo/{name}.png",
-      "status": true,
-      "desc": "",
-      "nsfw": false
-    },
-    {
-      "id": "cb9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bef",
-      "name": "feiyang.yylunbo",
-      "type": 0,
-      "url": "http://127.0.0.1:35457/yylunbo.m3u",
-      "playerType": 0,
-      "ua": "okhttp/3.15",
-      "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}",
-      "logo": "https://epg.112114.xyz/logo/{name}.png",
-      "status": true,
-      "desc": "",
-      "nsfw": false
-    }
-  ]
+  "data": [],
+  "lives": []
 }
