@@ -1,18 +1,46 @@
-[
-  {
-    "id": "天天",
-    "name": "⛅天天",
-    "type": 1,
-    "logo": "",
-    "desc": "",
-    "nsfw": false,
-    "status": true,
-    "api": "csp_TTian",
-    "extra": {
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "7lj763gg0939791h1l3888jig44gi291li"
+{
+  "sites": [
+    {
+      "id": "ttys-001",
+      "name": "⛅天天影视",
+      "type": 0, // 关键：改为maccms类型，避免JS函数依赖
+      "logo": "",
+      "desc": "天天影视资源，适配加密参数",
+      "nsfw": false,
+      "status": true,
+      "api": "https://api.ttysapi.com", // 必须是带https://的合法URL，不能填csp_TTian
+      "extra": {
+        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
+        "gfw": false,
+        "searchLimit": 20,
+        "customParam": "7lj763gg0939791h1l3888jig44gi291li",
+        "sniffer": {
+          "mode": 0,
+          "timeout": 15000,
+          "customRegex": "https?://.*\\.(m3u8|mp4|flv)",
+          "script": "document.cookie = 'token=7lj763gg0939791h1l3888jig44gi291li';"
+        }
+      }
+    },
+    {
+      "id": "lkdy-002",
+      "name": "🏔️来看影视",
+      "type": 0,
+      "logo": "",
+      "nsfw": false,
+      "status": true,
+      "api": "https://lkvod.com",
+      "extra": {
+        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
+        "gfw": false,
+        "searchLimit": 20,
+        "sniffer": {
+          "mode": 0,
+          "timeout": 15000
+        }
+      }
     }
-  }
-]
+  ],
+  "data": [],
+  "lives": []
+}
