@@ -1,174 +1,14 @@
 {
   "sites": [
     {
-      "id": "f8e4d7c6-b5a4-3210-9876-0123456789ab",
-      "name": "🔍Tg豆瓣┃本接口免费-🈲贩卖",
-      "type": 1,
-      "logo": "",
-      "desc": "豆瓣影视资源聚合",
-      "nsfw": false,
-      "status": true,
-      "api": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/js/tgdouban.js",
-      "extra": {
-        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
-        "gfw": false,
-        "searchLimit": 20,
-        "js": {
-          "category": "getCategory",
-          "home": "getHome",
-          "search": "getSearch",
-          "detail": "getDetail",
-          "parseIframe": "parseIframe"
-        },
-        "sniffer": {
-          "mode": 0,
-          "timeout": 10000,
-          "customRegex": "https?://.*\\.(m3u8|mp4|flv)",
-          "exclude": "",
-          "script": "",
-          "initScript": ""
-        },
-        "siteUrl": "http://127.0.0.1:9999",
-        "commonConfig": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/json/peizhi.json"
-      }
-    },
-    {
-      "id": "a1b2c3d4-e5f6-7890-abcd-0123456789ef",
-      "name": "🍉瓜子影视",
-      "type": 1,
-      "logo": "",
-      "desc": "多源影视资源搜索",
-      "nsfw": false,
-      "status": true,
-      "api": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/js/guazi.js",
-      "extra": {
-        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
-        "gfw": false,
-        "searchLimit": 20,
-        "js": {
-          "category": "getCategory",
-          "home": "getHome",
-          "search": "getSearch",
-          "detail": "getDetail",
-          "parseIframe": "parseIframe"
-        },
-        "sniffer": {
-          "mode": 0,
-          "timeout": 10000
-        }
-      }
-    },
-    {
-      "id": "98765432-10fe-dcba-0987-654321abcdef",
-      "name": "✂️荐片影视",
-      "type": 1,
-      "logo": "",
-      "desc": "精选影视推荐",
-      "nsfw": false,
-      "status": true,
-      "api": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/js/jianpian.js",
-      "extra": {
-        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
-        "gfw": false,
-        "searchLimit": 20,
-        "js": {
-          "category": "getCategory",
-          "home": "getHome",
-          "search": "getSearch",
-          "detail": "getDetail"
-        },
-        "sniffer": {
-          "mode": 0,
-          "timeout": 15000
-        }
-      }
-    },
-    {
-      "id": "11223344-5566-7788-9900-aabbccddeeff",
-      "name": "🔥骚火影视",
-      "type": 1,
-      "logo": "",
-      "desc": "高清影视资源",
-      "nsfw": false,
-      "status": true,
-      "api": "https://saohuody.com",
-      "extra": {
-        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
-        "gfw": false,
-        "searchLimit": 10,
-        "js": {
-          "category": "getCategory",
-          "home": "getHome",
-          "search": "getSearch",
-          "detail": "getDetail"
-        },
-        "sniffer": {
-          "mode": 1,
-          "timeout": 10000,
-          "customRegex": "https?://cdn\\.saohuody\\.com/.*\\.(m3u8|mp4)"
-        }
-      }
-    },
-    {
-      "id": "00998877-6655-4433-2211-zzxxyywwvvuu",
-      "name": "🏔️来看影视",
-      "type": 1,
-      "logo": "",
-      "desc": "免费影视资源",
-      "nsfw": false,
-      "status": true,
-      "api": "https://lkvod.com",
-      "extra": {
-        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
-        "gfw": false,
-        "searchLimit": 20,
-        "js": {
-          "category": "getCategory",
-          "home": "getHome",
-          "search": "getSearch",
-          "detail": "getDetail"
-        },
-        "sniffer": {
-          "mode": 0,
-          "timeout": 10000
-        }
-      }
-    },
-    {
-      "id": "zzzzzzzz-yyyy-xxxx-wwww-vvvvvvvvvvvv",
-      "name": "🅿网盘配置中心",
-      "type": 1,
-      "logo": "",
-      "desc": "网盘资源配置管理",
-      "nsfw": false,
-      "status": true,
-      "api": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/js/panconfig.js",
-      "extra": {
-        "jiexiUrl": "",
-        "gfw": false,
-        "searchLimit": 20,
-        "js": {
-          "category": "getCategory",
-          "home": "getHome",
-          "search": "",
-          "detail": "getDetail"
-        },
-        "sniffer": {
-          "mode": 0,
-          "timeout": 10000
-        },
-        "commonConfig": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/json/peizhi.json"
-      }
-    },
-    {
-      "id": "aaaaaaaabbbbbbbbbccccccccdddddddd",
-      "name": "🧲电影天堂",
+      "id": "movie天堂-001",
+      "name": "🧲电影天堂(可用版)",
       "type": 0,
-      "logo": "",
-      "desc": "苹果CMS影视源",
+      "logo": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/json/moviet天堂.png",
+      "desc": "苹果CMS影视源，稳定可访问",
       "nsfw": false,
       "status": true,
-      "api": "https://cj.apibdzy.com/inc/api.php",
+      "api": "https://api.w23w2.com/inc/api.php",
       "extra": {
         "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
         "gfw": false,
@@ -176,7 +16,70 @@
         "category": "",
         "sniffer": {
           "mode": 0,
-          "timeout": 10000
+          "timeout": 15000,
+          "customRegex": "https?://.*\\.(m3u8|mp4|flv)"
+        }
+      }
+    },
+    {
+      "id": "tgDouban-002",
+      "name": "🔍Tg豆瓣┃免费资源",
+      "type": 1,
+      "logo": "",
+      "nsfw": false,
+      "status": true,
+      "api": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/js/tgdb.js",
+      "extra": {
+        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
+        "gfw": false,
+        "searchLimit": 20,
+        "js": {
+          "category": "getCategory",
+          "home": "getHome",
+          "search": "getSearch",
+          "detail": "getDetail",
+          "parseIframe": "parseIframe"
+        },
+        "sniffer": {
+          "mode": 1,
+          "timeout": 12000
+        },
+        "siteUrl": "http://127.0.0.1:9999",
+        "commonConfig": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/json/peizhi.json"
+      }
+    },
+    {
+      "id": "yaHuo-003",
+      "name": "🐯虎牙直播源",
+      "type": 1,
+      "logo": "",
+      "nsfw": false,
+      "status": true,
+      "api": "https://gh-proxy.com/raw.githubusercontent.com/fantaiying7/EXT/main/drpy2.js",
+      "extra": {
+        "gfw": false,
+        "searchLimit": 10,
+        "js": {
+          "category": "getCategory",
+          "home": "getHome",
+          "detail": "getDetail"
+        }
+      }
+    },
+    {
+      "id": "jianPian-004",
+      "name": "✂️荐片影视",
+      "type": 1,
+      "logo": "",
+      "nsfw": false,
+      "status": true,
+      "api": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/js/jianpian.js",
+      "extra": {
+        "jiexiUrl": "https://yparse.ik9.cc/index.php?url=",
+        "gfw": false,
+        "js": {
+          "home": "getHome",
+          "detail": "getDetail"
         }
       }
     }
@@ -184,7 +87,7 @@
   "data": [],
   "lives": [
     {
-      "name": "CCTV1 综合",
+      "name": "CCTV1 综合频道",
       "url": "https://live.fcdn.app/live/cctv1hd/index.m3u8",
       "type": 0
     },
@@ -194,12 +97,7 @@
       "type": 0
     },
     {
-      "name": "浙江卫视",
-      "url": "https://live.fcdn.app/live/zjstv/index.m3u8",
-      "type": 0
-    },
-    {
-      "name": "抖音热榜直播",
+      "name": "抖音直播聚合",
       "url": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/live/douyin.txt",
       "type": 1
     }
