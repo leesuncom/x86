@@ -38,6 +38,10 @@ git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon feeds/luci/the
 git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config feeds/luci/applications/luci-app-argon-config
 git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
 
+# replace adguardhome to lastest update
+rm -rf feeds/packages/net/adguardhome
+git_sparse_clone master https://github.com/kenzok8/openwrt-packages adguardhome luci-app-adguardhome
+
 # replace MOSdns to lastest update
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-mosdns
@@ -61,11 +65,11 @@ git clone --depth=1 https://github.com/vernesong/OpenClash package/luci-app-open
 # 清理 PassWall 的 chnlist 规则文件
 echo "baidu.com"  > package/luci-app-passwall/luci-app-passwall/root/usr/share/passwall/rules/chnlist
 
-cp -rf $GITHUB_WORKSPACE/patch/files ./files
-chmod 755 ./files/etc/updatew.sh
-chmod 755 ./files/etc/hosts.sh
-chmod 755 ./files/etc/mosdns/script/flush_cache.sh
-chmod 755 ./files/etc/init.d/cert_bootstrap
+#cp -rf $GITHUB_WORKSPACE/patch/files ./files
+#chmod 755 ./files/etc/updatew.sh
+#chmod 755 ./files/etc/hosts.sh
+#chmod 755 ./files/etc/mosdns/script/flush_cache.sh
+#chmod 755 ./files/etc/init.d/cert_bootstrap
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
