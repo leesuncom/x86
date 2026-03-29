@@ -1,3 +1,4 @@
+# https://github.com/jxdqwer/openwrt-ci-roc/blob/master/.github/workflows/x86-64-ImmortalWrt.yml
 name: x86-64-ImmortalWrt
 
 on:
@@ -13,8 +14,8 @@ env:
   GENERAL_CONFIG_FILE: configs/General.config
   DIY_SCRIPT: scripts/Roc-script.sh
   CLASH_KERNEL: amd64
-  UPLOAD_BIN_DIR: false
-  FIRMWARE_RELEASE: true
+#  UPLOAD_BIN_DIR: false
+#  FIRMWARE_RELEASE: true
   FIRMWARE_TAG: x86-64
   TZ: Asia/Shanghai
 
